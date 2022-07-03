@@ -1,7 +1,6 @@
 GET http://127.0.0.1:5000/movies/
 Accept: application/json
-Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IkFkbWluIiwicm9sZSI6ImFkbWluIiwiZXhwaXJlcyI6MTY1Njg2MzIzMn0.tg6UW7GWRxPVeShgVcfhWN7LX4qi3RxT5jhQaB_o2t4
-
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IkFkbWluIiwicm9sZSI6ImFkbWluIiwiZXhwaXJlcyI6MTY1Njg2NTM3MH0.jesCX0_7ddwykzZnpfsmZErZmT2JWAsfdJmWKre52Zc
 
 ###
 
@@ -17,6 +16,7 @@ Accept: application/json
 
 GET http://127.0.0.1:5000/movies/?year=2010
 Accept: application/json
+Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6IkFkbWluIiwicm9sZSI6ImFkbWluIiwiZXhwaXJlcyI6MTY1Njg2NDQ3MH0.4YLNYmB6yoPGAFMB9qGxwfz14ahLpcwKvk7T-FecJe8
 
 ###
 
@@ -99,18 +99,6 @@ DELETE http://127.0.0.1:5000/movies/21
 
 ###
 
-POST http://127.0.0.1:5000/users/
-Accept: application/json
-Content-Type: application/json
-
-{
-  "username": "test_user",
-  "password": "test_password",
-  "role": "test_role"
-}
-
-###
-
 POST http://127.0.0.1:5000/genres/
 Accept: application/json
 Content-Type: application/json
@@ -157,7 +145,7 @@ Content-Type: application/json
   "name": "test_director_new"
 }
 
-###
+### Создание нового пользователя
 
 POST http://127.0.0.1:5000/users/
 Accept: application/json
@@ -169,7 +157,7 @@ Content-Type: application/json
   "role": "admin"
 }
 
-###
+### Авторизация пользователя
 
 POST http://127.0.0.1:5000/auth/
 Accept: application/json
