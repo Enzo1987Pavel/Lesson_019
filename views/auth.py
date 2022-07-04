@@ -18,8 +18,8 @@ class AuthView(Resource):
 
 		try:
 			return auth_services.generate_tokens(username, password)
-		except Exception:
-			return "", 400
+		except Exception as error:
+			return f"Ошибка: {error}", 400
 
 	def put(self):
 		req_json = request.json

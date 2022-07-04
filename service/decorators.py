@@ -10,10 +10,11 @@ def auth_required(func):
 		if not "Authorization" in request.headers:
 			abort(401)
 
-		token = request.headers["Authorization"]
+		data = request.headers["Authorization"]  # Получаем заголовок 'Authorization'
+		token = data.split("Bearer ")[-1]  # Делим по строке 'Bearer ' и забираем последнее значение
 
 		try:
-			jwt.decode(token, JWT_SECRET, algorithm=[JWT_ALGORITHM])
+			jwt.decode(token, JWT_SECRET, algorithms=[JWT_ALGORITHM])
 		except Exception as e:
 			print(f"JWT decode error: {e}")
 			abort(401)
@@ -28,10 +29,11 @@ def admin_required(func):
 		if not "Authorization" in request.headers:
 			abort(401)
 
-		token = request.headers["Authorization"]
+		data = request.headers["Authorization"]  # Получаем заголовок 'Authorization'
+		token = data.split("Bearer ")[-1]  # Делим по строке 'Bearer ' и забираем последнее значение
 
 		try:
-			data = jwt.decode(token, JWT_SECRET, algorithm=[JWT_ALGORITHM])
+			data = jwt.decode(token, JWT_SECRET, algorithms=[JWT_ALGORITHM])
 		except Exception as e:
 			print(f"JWT decode error: {e}")
 			abort(401)
